@@ -28,7 +28,7 @@ expertiseLevel: "Target skill level in the topic being taught; example values in
 
 ![Header with Skills4EOSC funding information](./attachments/header.png)
 
-# Title of training 
+# Title of Training 
 
 # Type (Course/Workshop/Webinar)
 
