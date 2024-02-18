@@ -43,13 +43,13 @@ citation:
   title: "Training Name"
   abstract: "Training description"
   version: 1.0.0
-  doi: 10.5070/zenodo.123
-  date-released: "1970"
+  doi: 10.5281/zenodo.10676498
+  date-released: "2024"
   license: CC-BY-4.0
   license-url: "https://creativecommons.org/licenses/by/4.0/legalcode.txt"
   type: generic
   keywords:
-    - "first keyword"
-    - "second keyword"
-    - "third keyword"
+    - first keyword
+    - second keyword
+    - third keyword
   repository: "https://github.com/FAIR-by-Design-Demo/pubtest"
