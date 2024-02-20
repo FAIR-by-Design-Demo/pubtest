@@ -13,6 +13,12 @@ jobs:
           url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
           echo "PAGES_URL=$url" >> $GITHUB_ENV
 
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
+
       - name: Update GitHub pages URL
         uses: mikefarah/yq@v4.34.2
         with:
