@@ -1,6 +1,7 @@
 name: Extend signposting variables
 on:
   workflow_dispatch:
+  workflow_call:
 jobs:
   override_variables:
     name: Override variables
