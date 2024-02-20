@@ -53,3 +53,5 @@ citation:
     - second keyword
     - third keyword
   repository: "https://github.com/FAIR-by-Design-Demo/pubtest"
+signposting:
+  website: https://fair-by-design-demo.github.io/pubtest/
