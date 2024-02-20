@@ -16,7 +16,7 @@ jobs:
       - name: Update GitHub pages URL
         uses: mikefarah/yq@v4.34.2
         with:
-          cmd: yq eval -i '.signposting.website="${{ PAGES_URL }}"' mkdocs.yml
+          cmd: yq eval -i '.signposting.website="${{ env.PAGES_URL }}"' mkdocs.yml
 
       - name: Check for changes
         run: |
