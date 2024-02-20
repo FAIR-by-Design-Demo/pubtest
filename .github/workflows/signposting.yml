@@ -11,4 +11,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
-          echo $url
+          echo "PAGES_URL=$url" >> $GITHUB_ENV
+
+      - name: Update GitHub pages URL
+        uses: mikefarah/yq@v4.34.2
+        with:
+          cmd: yq eval -i '.signposting.website="${{ PAGES_URL }}"' mkdocs.yml
+
+      - name: Check for changes
+        run: |
+          test -z "$(git status --porcelain)" || echo "changes=true" >> $GITHUB_ENV
+
+      - name: Commit updated mkdocs.yml file
+        if: env.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add mkdocs.yml
+          git commit -m "Automated version update of mkdocs.yml" || true
+          git push
