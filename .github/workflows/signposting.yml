@@ -6,12 +6,14 @@ jobs:
     name: Override variables
     runs-on: ubuntu-22.04
     steps:
-      - name: Generate redirect
+      - name: Get pages URL and CITATION.cff path
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
           echo "PAGES_URL=$url" >> $GITHUB_ENV
+          cff_path="https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_REF_NAME/CITATION.cff"
+          echo "CFF_URL=$cff_path" >> $GITHUB_ENV
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -22,7 +24,9 @@ jobs:
       - name: Update GitHub pages URL
         uses: mikefarah/yq@v4.34.2
         with:
-          cmd: yq eval -i '.signposting.website="${{ env.PAGES_URL }}"' mkdocs.yml
+          cmd: |
+            yq eval -i '.signposting.website="${{ env.PAGES_URL }}"' mkdocs.yml &&
+            yq eval -i '.signposting.cffUrl="${{ env.CFF_URL }}"' mkdocs.yml 
 
       - name: Check for changes
         run: |
