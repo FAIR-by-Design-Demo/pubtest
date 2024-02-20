@@ -55,3 +55,4 @@ citation:
   repository: "https://github.com/FAIR-by-Design-Demo/pubtest"
 signposting:
   website: https://fair-by-design-demo.github.io/pubtest/
+  cffUrl: https://raw.githubusercontent.com/FAIR-by-Design-Demo/pubtest/main/CITATION.cff
