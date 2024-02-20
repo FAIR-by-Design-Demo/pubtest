@@ -34,7 +34,7 @@ expertiseLevel: "Target skill level in the topic being taught; example values in
 
 ## Date/Time: when it will be offered
 
-- Put available from date if it is self-paced
+- Put available from date if it is self-paced.
 
 ## Location
 
